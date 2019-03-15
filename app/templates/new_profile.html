@@ -6,39 +6,39 @@
 
 {% block main %}
 {% include "flash_messages.html" %}
-<div class="form-container border-style">
+<div class="forms-con border">
     <h1 id="page-title">Add Profile</h1> 
     <form method = "POST" action="{{ url_for('profile') }}" enctype="multipart/form-data">
         {{newProfileForm.csrf_token}}
-        <div class="containers">
+        <div class="contain">
             {{newProfileForm.firstname.label(class="block")}}
             {{newProfileForm.firstname(class="field col-md-8")}}
         </div>
-        <div class="containers">
+        <div class="contain">
             {{newProfileForm.lastname.label(class="block")}}
             {{newProfileForm.lastname(class="field col-md-8")}}
         </div>
-        <div class="containers">
+        <div class="contain">
             {{newProfileForm.gender.label(class="block")}}
             {{newProfileForm.gender(class="field col-md-8")}}
         </div>
-        <div class="containers">
+        <div class="contain">
             {{newProfileForm.email.label(class="block")}}
             {{newProfileForm.email(placeholder = "eg. example@example.com", class="field col-md-8")}}
         </div>
-        <div class="containers">
+        <div class="contain">
             {{newProfileForm.location.label(class="block")}}
             {{newProfileForm.location(placeholder="eg. Kingston, Jamaica", class="field col-md-8")}}
         </div>
-        <div class="containers">
+        <div class="contain">
             {{newProfileForm.bio.label(class="block")}}
             {{newProfileForm.bio(class="field col-md-8")}}
         </div>
-        <div class="containers">
+        <div class="contain">
             {{newProfileForm.photo.label(class="block")}}
             {{newProfileForm.photo(class="field col-md-8")}}
         </div>
-        <div class="containers">
+        <div class="contain">
             <input type="submit" value="Add Profile" class="btn btn-success"/>
         </div>
     </form>
