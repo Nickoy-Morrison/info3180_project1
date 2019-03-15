@@ -4,6 +4,7 @@ body {
 .pro_pic{
     width:90px;
     height:90px;
+    border-radius: 40%;
 }
 
 .blk{
@@ -57,13 +58,21 @@ body {
     margin: 0 auto;
     width: 45%;
     margin-bottom: 1%;
+    
 }
 
-
+.hr-st{
+    margin-top: 5px;
+    border-top: 2px Aqua solid;
+    border-bottom: 2px Aqua solid;
+    border-radius: 8%;
+    padding-left: 20px;
+}
 
 .pro_img{
-    width: 140px;
+    width: 100px;
     height: 80px;
+    border-radius: 50%;
     margin-top: 5px
 }
 
@@ -101,7 +110,8 @@ body {
 }
 
 .contain{
-    margin-bottom: 1%;
+    margin-top: 10px;
+    margin-bottom: 15px;
 }
 
 .field{
