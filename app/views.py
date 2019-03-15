@@ -11,11 +11,11 @@ import os
 @app.route("/")
 def home():
     return render_template('home.html')
-
+    
 @app.route('/about/')
 def about():
     """Render the website's about page."""
-    return render_template('about.html')    
+    return render_template('about.html')   
     
 @app.route("/profile", methods=["GET", "POST"])
 def profile():
@@ -48,12 +48,37 @@ def profile():
             except Exception as e:
                 db.session.rollback()
                 flash("Internal Error", "danger")
-                return render_template("create_new_profile.html", newProfileForm = newProfileForm)
+                return render_template("new_profile.html", newProfileForm = newProfileForm)
         
         errors = form_errors(newProfileForm)
         flash(''.join(error+" " for error in errors), "danger")
-    return render_template("create_new_profile.html", newProfileForm = newProfileForm)
+    return render_template("new_profile.html", newProfileForm = newProfileForm)
 
+
+@app.route("/profiles")
+def profiles():
+    users = User.query.all()
+    profiles = []
+    
+    for user in users:
+        profiles.append({"pro_pic": user.photo, "f_name":user.firstname, "l_name": user.lastname, "gender": user.gender, "location":user.location, "id":user.id})
+    
+    return render_template("view_all_profiles.html", profiles = profiles)
+
+@app.route('/profile/<userid>')
+def inidi_profile(userid):
+    user = User.query.filter_by(id=userid).first()
+    
+    if user is None:
+        return redirect(url_for('home'))
+        
+    c_y = int(user.created_on.split("-")[0])
+    c_m = int(user.created_on.split("-")[1])
+    c_d = int(user.created_on.split("-")[2])
+    
+    user.created_on = format_date_joined(c_y, c_m, c_d)
+    
+    return render_template("profile.html", user=user)
 
 def format_date_joined(yy,mm,dd):
     return datetime.date(yy,mm,dd).strftime("%B, %d,%Y")
