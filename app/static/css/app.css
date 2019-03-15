@@ -1,3 +1,53 @@
 body {
     padding-top: 5rem;
 }
+
+/*profile*/
+
+.pro_img{
+    width: 140px;
+    height: 80px;
+    margin-top: 5px
+}
+
+.card{
+    width: 25rem;
+}
+
+.center{
+    margin: 0 auto;
+}
+
+.btn{
+    width:47%;
+}
+
+.inline{
+    display: inline;
+}
+
+.btn-container{
+    text-align: center;
+}
+
+.top-info{
+    padding: 30px;
+}
+
+
+/*new profile*/
+
+
+.block{
+    display: block;
+}
+
+.containers{
+    margin-bottom: 1%;
+}
+
+.field{
+    border-radius: 5px;
+}
+
+
